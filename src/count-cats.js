@@ -1,4 +1,5 @@
 module.exports = function countCats(/* matrix */) {
-  throw 'Not implemented';
-  // remove line with error and write your code here
+   return  matrix.reduce((block, index) => {
+        return  block + index.filter((x) => x === '^^').length
+    }, 0);
 };
