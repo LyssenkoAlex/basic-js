@@ -1,24 +1,34 @@
 const chainMaker = {
+
+  accum: [],
+  toReturn: '',
   getLength() {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    return this.accum.length;
   },
   addLink(value) {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    typeof value === 'undefined' ?  this.accum.push(`( )`) :this.accum.push(`( ${value} )`) ;
+    return this
   },
   removeLink(position) {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    if(position > 0 && position < this.getLength()){
+      this.accum.splice(position-1,1);
+    }
+    else {
+      this.accum = [];
+      throw Error()
+    }
+    return this
   },
   reverseChain() {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    this.accum.reverse();
+    return this
   },
   finishChain() {
-    throw 'Not implemented';
-    // remove line with error and write your code here
+    this.toReturn = this.accum.join('~~');
+    this.accum = [];
+    return this.toReturn
   }
+
 };
 
 module.exports = chainMaker;
